@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>To Do List: DOM</title>
+
+  <!-- Bootstrap for styling -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <style> 
+    /* utility CSS not provided by Bootstrap 4 */
+    .font-strike { text-decoration: line-through; }
+  </style>
+</head>
+<body class="container">
+
+  <h1>To Do List</h1>
+
+  <p id="alert-done" class="alert d-none">Alert!</p>  
+  
+  <p class="lead">Things I have to do:</p>
+  <ol>
+    <li>Fill in the <code>js/index.js</code> file and complete the exercise</li>
+  </ol>
+
+  <div class="form">
+    <div class="form-group">
+      <input type="text" id="task-input" class="form-control" placeholder="What else do you have to do?"/>
+    </div>
+    <div class="form-group">
+      <button type="button" id="add-task" class="btn btn-primary">Add task to list</button>
+      <button type="button" id="check-done" class="btn btn-success">Am I done?</button>
+    </div>
+  </div>
+
+  <!-- include JavaScript file -->
+  <script src="js/index.js"></script>
+</body>
+</html>
