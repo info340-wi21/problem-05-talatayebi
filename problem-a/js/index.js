@@ -13,18 +13,19 @@ const COLORS_9 = {
 /* Your code goes here! */
 
 //Create a variable `h1` that refers to the `<h1>` element in the DOM.
-
-
+var h1 = document['querySelector']('h1');
 //Change the `textContent` of the `<h1>` element to be "Which Swatch?"
-
+h1['textContent'] = "Which Swatch?";
 
 //Somehow the rainbow icon image was included without an alt tag! Set its `alt`
 //attribute to be "A beautiful rainbow".
 
+document['querySelector']('img')['alt'] ='A beautiful rainbow';
 
 //Give the image the Bootstrap-provided `float-right` CSS class to make it float
 //to the right of the screen
 
+document['querySelector']('img')['setAttribute']('class', 'float-right');
 
 /*Define a function `createColorBox()` that takes in two parameters: a color 
 string (e.g., "blue") and a numeric size (in pixels, e.g., 100). The function 
@@ -38,8 +39,14 @@ shoukld do the following:
 You can test this function by logging out the returned value and checking its
 attributes.
 */
-
-
+function createColorBox(colorString, size){
+  var divElement = document['createElement']('div');
+  divElement['classList']['add']('d-inline-block');
+  divElement['style']['backgroundColor'] = colorString;
+  divElement['style']['height'] = size + 'px';
+  divElement['style']['width'] = size + 'px';
+  return divElement;
+}
 
 /* Define a function `getElementWidth()` that takes in a DOM element (not a 
 string!). This function should return the width in pixels (a number) of that
@@ -49,7 +56,10 @@ element.
    width and height. Return the `width` value of that object.
 */
 
-
+function getElementWidth(DOMelement){
+  var objectWidth = DOMelement.getBoundingClientRect()['width'];
+  return objectWidth;
+}
 
 /* Define a function `renderPaletteRow()` that takes in two arguments: array of 
 color strings (like a SINGLE ELEMENT of the `COLORS_9` object), and a "parent" 
@@ -71,6 +81,7 @@ browser window unless you refresh.
 
 You should NOT include any test calls when running Jest tests!
 */
+
 
 
 
