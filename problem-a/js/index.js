@@ -42,9 +42,9 @@ attributes.
 function createColorBox(colorString, size){
   var divElement = document['createElement']('div');
   divElement['classList']['add']('d-inline-block');
-  divElement['style']['backgroundColor'] = colorString;
   divElement['style']['height'] = size + 'px';
   divElement['style']['width'] = size + 'px';
+  divElement['style']['backgroundColor'] = colorString;
   return divElement;
 }
 
@@ -81,9 +81,17 @@ browser window unless you refresh.
 
 You should NOT include any test calls when running Jest tests!
 */
+function renderPaletteRow(colorString, parentDOM){
 
+  var divElement = document['createElement']('div');
+  var colorBoxPortion = (getElementWidth(parentDOM) / colorString['length']);
+  var stringLengt = colorString['length'];
 
-
+  for (let i = 0; i < stringLengt; i++) {
+    divElement['appendChild'](createColorBox(colorString[i], colorBoxPortion));
+  }
+  parentDOM['appendChild'](divElement);
+}
 
 /* Define a function `renderPaletteTable()` that takes no arguments and renders 
 a color palette row for each of the palettes in the `COLORS_9` object into the 
@@ -96,12 +104,21 @@ Tip: note that `COLORS_9` is an object, not an array! You'll need to use a
 Call your `renderPaletteTable()` method to display all the color palettes!
 */
 
+function renderPaletteTable(){
+  var objectkes = Object['keys'](COLORS_9);
+  var lengtobjectkes = objectkes['length'];
+  
+  for (let i = 0; i < lengtobjectkes; i++){ //m keboard is broken so te letters between j and g, t and u, and te number between 5 and 7 don't work so m variable names are a little weird.
+    renderPaletteRow(COLORS_9[objectkes[i]], document['querySelector']('main'));
+  }
 
+}
+
+renderPaletteTable();
 
 //Finally, remove the paragraph in the header that explains how to complete the 
 //problem.
-
-
+document['querySelector']('header', 'p')['remove'];
 
 //Make functions and variables available to tester. DO NOT MODIFY THIS.
 if(typeof module !== 'undefined' && module.exports){
